@@ -11,10 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: Properties
-    //Put Outlets
-  @IBOutlet weak var phraseInputField: UITextField!
+    //Variables needed later
+    var happynumber = 0
+    var sadnumber = 0
+    var numberOfEmojis = 0
     
-  @IBOutlet weak var outputResult: UILabel!
+    //Put Outlets
+    @IBOutlet weak var phraseInputField: UITextField!
+    
+    @IBOutlet weak var outputResult: UILabel!
     
     //MARK: Methods
     //Functions (make things happen)
@@ -24,13 +29,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-   //Analyse the text provided
+    
+    //Analyse the text provided
     @IBAction func analyzeText(_ sender: Any) {
         
         //1. INPUT
         //Clear out the output label from the last time the Analyze button was pressed
         outputResult.text = ""
+        happynumber = 0
+        sadnumber = 0
+        numberOfEmojis = 0
         
         //Guard against no input
         guard let phraseInput = phraseInputField.text, phraseInput.count > 0 else {
@@ -49,33 +57,31 @@ class ViewController: UIViewController {
         // Loop over the characters in the string
         for character in phraseInput {
             //access individual characters of a string using an index
-            var index = phraseInput.index(phraseInput.startIndex, offsetBy: 0)
-            let firstEmoji = phraseInput[index]
-            print("HAPPY")
-            
-            if character == "😃" {
-                //Showing the plaintext characters and their scalar values
-                print("Happy")
-                
-            } else if character == "😊" {
-                
-            } else if character == "🙂"{
-                
-            } else if character == "😄"{
-                //Showing the plaintext characters and their scalar values
-                print("Happy")
-                
-                
+            switch character {
+            case "😃","😊","🙂","😄":
+                happynumber+=1
+                numberOfEmojis+=1
+            case "☹️","🙁","😕","😔":
+                sadnumber-=1
+                numberOfEmojis-=1
+            default:
+                outputResult.text = "none"
             }
+            
+            let
+            
+        
             
         }
         
-       
-       
     }
     
     
     
-    
 }
+
+
+
+
+
 
