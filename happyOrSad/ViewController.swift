@@ -44,6 +44,33 @@ class ViewController: UIViewController {
             outputResult.text = "Please enter a phrase with 255 characters or less."
             return
         }
+        
+        
+        // Loop over the characters in the string
+        for character in phraseInput {
+            //access individual characters of a string using an index
+            var index = phraseInput.index(phraseInput.startIndex, offsetBy: 0)
+            let firstEmoji = phraseInput[index]
+            print("HAPPY")
+            
+            if character == "😃" {
+                //Showing the plaintext characters and their scalar values
+                print("Happy")
+                
+            } else if character == "😊" {
+                
+            } else if character == "🙂"{
+                
+            } else if character == "😄"{
+                //Showing the plaintext characters and their scalar values
+                print("Happy")
+                
+                
+            }
+            
+        }
+        
+       
        
     }
     
