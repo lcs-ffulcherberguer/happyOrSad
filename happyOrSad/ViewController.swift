@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     //Variables needed later
     var happynumber = 0
     var sadnumber = 0
+    var emojiCount = 0
     var numberOfEmojis = 0
     
     //Put Outlets
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
         outputResult.text = ""
         happynumber = 0
         sadnumber = 0
+        emojiCount = 0
         numberOfEmojis = 0
         
         //Guard against no input
@@ -54,34 +56,63 @@ class ViewController: UIViewController {
         }
         
         
+        // Created happy emojis and sad emojis constantss
+        let happyArray = "😃😊😄🙂"
+        let sadArray = "☹🙁😕😔"
+        // Loop to check every single character for an emoji
+        
         // Loop over the characters in the string
         for character in phraseInput {
-            //access individual characters of a string using an index
-            switch character {
-            case "😃","😊","🙂","😄":
-                happynumber+=1
+            // if/else statement to check if any of the characters are emojis
+            if happyArray.contains(character) {
+                // If emoji count is over 1 - user is happy
+                emojiCount+=1
+                // User has used an emoji
                 numberOfEmojis+=1
-            case "☹️","🙁","😕","😔":
-                sadnumber-=1
-                numberOfEmojis-=1
-            default:
-                outputResult.text = "none"
+                
+            } else if sadArray.contains(character){
+                // If emoji count is under 1 - user is sad
+                emojiCount-=1
+                // User has used an emoji
+                numberOfEmojis+=1
+                
+            } else {
+                // Set the label text to 'none'
+                outputResult.text = "none."
+                
+                // Second if/else statement to see if emoji count is positive or negative indicating if user is happy or sad
+                if emojiCount >= 1 {
+                    outputResult.text = "happy."
+                } else if emojiCount <= -1 {
+                    outputResult.text = "sad."
+                    
+                    // if emoji count is zero there is the same number of happy or sad emojis
+                } else if emojiCount == 0, numberOfEmojis != 0 {
+                    outputResult.text = "unsure."
+                    // set default to none because it means there are no emojis
+                } else {
+                    outputResult.text = "none."
+                    
+                
+        
+                    
+                }
+                
+                
+                
+                
+                
             }
             
-            let
-            
-        
-            
         }
+        
+        
         
     }
     
     
     
+    
+    
+    
 }
-
-
-
-
-
-
