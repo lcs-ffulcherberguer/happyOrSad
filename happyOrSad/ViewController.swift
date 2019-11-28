@@ -80,7 +80,7 @@ class ViewController: UIViewController {
                 // Set the label text to 'none'
                 outputResult.text = "none."
                 
-                // Second if/else statement to see if emoji count is positive or negative indicating if user is happy or sad
+                //  if/else statement to see if emoji count is positive or negative indicating if user is happy or sad
                 if emojiCount >= 1 {
                     outputResult.text = "happy."
                 } else if emojiCount <= -1 {
